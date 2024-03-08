@@ -1,0 +1,42 @@
+{
+    "variants": {
+        "": {
+            "model": "rubinore:block/Rubinblock"
+        }
+    }
+} 
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "rubinore:blocks/Rubinblock"
+    }
+} 
+{
+    "parent": "rubinore:block/Rubinblock"
+} 
+"block.rubinore.Rubinblock": "Rubin Block"
+{
+    "type": "minecraft:block",
+    "pools": [
+    {
+        "rolls": 1.0,
+        "entries": [
+        {
+            "type": "minecraft:item",
+            "name": "rubinore:Rubinblock"
+        }
+        ]
+    }
+    ]
+} 
+- src/main/resources/
+    - assets/modid/
+        - blockstates/  
+            - block_name.json  
+        - models/block/  
+            - block_name.json  
+        - textures/blocks/
+            - block_name.png  
+    - data/modid/  
+        - loot_tables/blocks  
+            - block_name.json 
