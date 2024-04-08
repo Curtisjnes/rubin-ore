@@ -1,8 +1,9 @@
 package com.example.rubinore;
 
 
-
+import com.example.rubinore.RubinItem.RubinItemInit;
 import com.example.rubinore.Rubinblock.Rubinblock;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -21,7 +22,10 @@ public class RubinOreMain
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::setup);
+        RubinItemInit.ITEMS.register(modEventBus);
         Rubinblock.BLOCKS.register(modEventBus);
+
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

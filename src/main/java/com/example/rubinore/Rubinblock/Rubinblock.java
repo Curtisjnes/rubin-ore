@@ -4,11 +4,13 @@ import com.example.rubinore.RubinOreMain;
 import com.example.rubinore.RubinItem.RubinItemInit;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.*;
@@ -27,9 +29,9 @@ public class Rubinblock {
         if (event.getRegistryKey().equals(ForgeRegistries.Keys.ITEMS)){
             BLOCKS.getEntries().forEach( (blockRegistryObject) -> {
                 Block block = blockRegistryObject.get();
-                Item.Properties properties = new Item.Properties(RubinItemInit.ModCreativeTab.instance);
+                Item.Properties properties = new Item.Properties();
                 Supplier<Item> blockItemFactory = () -> new BlockItem(block, properties);
-
+                event.register(ForgeRegistries.Keys.ITEMS, blockRegistryObject.getId(), blockItemFactory);
             });
         }
     }
